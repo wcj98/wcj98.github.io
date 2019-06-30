@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chauncy&#39;s Blog</title>
-    <link>http://wcj98.github.io/</link>
+    <link>https://wcj98.github.io/</link>
     <description>Recent content on Chauncy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 30 Jun 2019 23:48:01 +0800</lastBuildDate>
     
-	<atom:link href="http://wcj98.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wcj98.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>BitmapUtils</title>
-      <link>http://wcj98.github.io/post/bitmaputils/</link>
+      <link>https://wcj98.github.io/post/bitmaputils/</link>
       <pubDate>Sun, 30 Jun 2019 23:48:01 +0800</pubDate>
       
-      <guid>http://wcj98.github.io/post/bitmaputils/</guid>
+      <guid>https://wcj98.github.io/post/bitmaputils/</guid>
       <description>Android BitmapUtils
 public class BitmapDecodeUtils { public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); }
 public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.</description>
