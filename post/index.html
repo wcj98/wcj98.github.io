@@ -29,6 +29,22 @@
   <h1 class="list-title">Posts</h1>
   
     <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="/post/bitmaputils/">BitmapUtils</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2019-06-30">June 30, 2019</time></span>
+
+  </div>
+  <section class="summary">
+    Android�д���ͼƬ�Ĺ�����
+public class BitmapDecodeUtils {
+public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.  <a href="/post/bitmaputils/">Read More...</a>
+  </section>
+</article>
+
+  
+    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="/post/first/">First</a></h2>
   <div class="meta">
 

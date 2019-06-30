@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="generator" content="Hugo 0.55.6" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Chauncy&#39;s Blog">
+<title>BitmapUtils - Chauncy&#39;s Blog</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    <a class="path" href="https://wcj98.github.io">[Chauncy&#39;s Blog]</a>
+    <span class="caret"># _</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2019-06-30">June 30, 2019</time></span>
+
+
+
+  </div>
+  <h1 class="headline" itemprop="headline">BitmapUtils</h1>
+  <section class="body" itemprop="articleBody">
+    <p>Android中处理图片的工具类</p>
+
+<p>public class BitmapDecodeUtils {</p>
+
+<pre><code>public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) {
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;
+    BitmapFactory.decodeByteArray(b, 0, b.length, options);
+    options.inJustDecodeBounds = false;
+    options.inSampleSize = editBitmap(options, reqW, reqH);
+    if (config) {
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+    }
+    return BitmapFactory.decodeByteArray(b, 0, b.length, options);
+}
+
+public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) {
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;
+    BitmapFactory.decodeResource(resources, resId, options);
+    options.inJustDecodeBounds = false;
+    options.inSampleSize = editBitmap(options, reqW, reqH);
+    if (config) {
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+    }
+    return BitmapFactory.decodeResource(resources, resId, options);
+
+}
+
+private static int editBitmap(BitmapFactory.Options options, int reqW, int reqH) {
+    final int outWidth = options.outWidth;
+    final int outHeight = options.outHeight;
+    if (outHeight &gt; reqH || outWidth &gt; reqW) {
+        float h = (float) outHeight / reqH;
+        float w = (float) outWidth / reqW;
+        return h &gt; w ? Math.round(h) : Math.round(w);
+    }
+    return 1;
+}
+</code></pre>
+
+<p>}</p>
+
+  </section>
+</article>
+
+</main>
+
+</div>
+
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2019 Chauncy&#39;s Blog - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
+
