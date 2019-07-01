@@ -19,8 +19,8 @@
       
       <guid>https://wcj98.github.io/post/cacheutis/</guid>
       <description>Android DiskLruCacheUtils
-//��������Ŀ¼ private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); }
-//������������ public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } //UrlתMD5���� private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
+private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); }
+public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
     </item>
     
     <item>
