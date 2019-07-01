@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>All rights reserved - 2019</copyright>
-    <lastBuildDate>Mon, 01 Jul 2019 21:59:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 23:48:01 +0800</lastBuildDate>
     
 	<atom:link href="https://wcj98.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>CacheUtis</title>
-      <link>https://wcj98.github.io/post/cacheutis/</link>
-      <pubDate>Mon, 01 Jul 2019 21:59:00 +0800</pubDate>
-      
-      <guid>https://wcj98.github.io/post/cacheutis/</guid>
-      <description>Android DiskLruCacheUtils
-#�������Ƶļ���
-private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
-    </item>
     
     <item>
       <title>Android BitmapUtils</title>
@@ -31,6 +20,17 @@ private static File getCacheDir(Context context, String fileName) { String cache
       <guid>https://wcj98.github.io/post/bitmaputils/</guid>
       <description>Android Bitmap
 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wcj98.github.io/post/cacheutis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wcj98.github.io/post/cacheutis/</guid>
+      <description>title: ��CacheUtis�� date: 2019-07-01T21:59:00+08:00
+draft: false Android DiskLruCacheUtils
+�������Ƶļ��� private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
     </item>
     
   </channel>
