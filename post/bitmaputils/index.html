@@ -12,10 +12,10 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Android的图片工具类"/>
-<meta name="twitter:description" content="Android图片工具类 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options."/>
+<meta name="twitter:description" content="Android的主要用来处理图片的工具类 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options."/>
 
     <meta property="og:title" content="Android的图片工具类" />
-<meta property="og:description" content="Android图片工具类 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options." />
+<meta property="og:description" content="Android的主要用来处理图片的工具类 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wcj98.github.io/post/bitmaputils/" />
 <meta property="article:published_time" content="2019-06-30T23:48:01&#43;08:00"/>
@@ -56,7 +56,7 @@
     <div class="post-content">
       
 
-<h2 id="android图片工具类">Android图片工具类</h2>
+<h2 id="android的主要用来处理图片的工具类">Android的主要用来处理图片的工具类</h2>
 
 <pre><code>public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) {
     BitmapFactory.Options options = new BitmapFactory.Options();
