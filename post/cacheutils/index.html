@@ -13,11 +13,11 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CacheUtils"/>
 <meta name="twitter:description" content="Android DiskLruCache
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest."/>
+private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } &lt;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } //ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½MD5ï¿½ï¿½ private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest."/>
 
     <meta property="og:title" content="CacheUtils" />
 <meta property="og:description" content="Android DiskLruCache
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest." />
+private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } &lt;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } //ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½MD5ï¿½ï¿½ private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wcj98.github.io/post/cacheutils/" />
 <meta property="article:published_time" content="2019-07-01T22:46:45&#43;08:00"/>
@@ -58,12 +58,12 @@
     <div class="post-content">
       <p>Android DiskLruCache</p>
 
-<pre><code>//»º´æ»úÖÆ
-private static File getCacheDir(Context context, String fileName) {
+<pre><code>private static File getCacheDir(Context context, String fileName) {
     String cachePath = context.getCacheDir().getPath();
     return new File(cachePath + File.separator, fileName);
 }
 
+&lt;¿¿¿¿¿¿
 public static DiskLruCache createDiskLruCache(Context context, String name) {
     DiskLruCache diskLruCache = null;
     File cacheDir = getCacheDir(context, name);
@@ -79,6 +79,7 @@ public static DiskLruCache createDiskLruCache(Context context, String name) {
     return diskLruCache;
 }
 
+//¿¿¿¿URL¿¿¿MD5¿¿
 private static String toHexMd5(String path) {
 
     String cacheKey = null;
@@ -105,6 +106,7 @@ private static String bytesToHexString(byte[] d) {
     return sb.toString();
 }
 
+//¿¿¿¿
 public static void writeCache(Context context, String path, String name, InputStream inputStream) {
     OutputStream outputStream = null;
     String key = toHexMd5(path);
@@ -129,7 +131,7 @@ public static void writeCache(Context context, String path, String name, InputSt
         }
     }
 }
-
+//¿¿¿¿¿¿¿
 public static byte[] readCache(Context context, String path, String name) {
     ByteArrayOutputStream outputStream = null;
     String key = toHexMd5(path);
