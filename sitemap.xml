@@ -30,6 +30,11 @@
   </url>
   
   <url>
+    <loc>https://wcj98.github.io/content/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wcj98.github.io/categories/</loc>
     <priority>0</priority>
   </url>
