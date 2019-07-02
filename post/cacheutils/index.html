@@ -13,7 +13,7 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CacheUtils"/>
 <meta name="twitter:description" content="Android DiskLruCache
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest."/>
+//»º´æ»úÖÆµÄ¼ÓÈë private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath &#43; File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest."/>
 
     <meta property="og:title" content="CacheUtils" />
 <meta property="og:description" content="Android DiskLruCache
