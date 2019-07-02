@@ -13,34 +13,32 @@
     
     
     <item>
-      <title>CacheUtils</title>
+      <title>Android CacheUtils</title>
       <link>https://wcj98.github.io/post/cacheutils/</link>
       <pubDate>Mon, 01 Jul 2019 22:46:45 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/cacheutils/</guid>
-      <description>Android DiskLruCache
-private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } &amp;lt;������ public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } //����URL���MD5�� private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
+      <description>#DiskLruCache
+private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
     </item>
     
     <item>
-      <title>Android BitmapUtils</title>
+      <title>Android的图片工具类</title>
       <link>https://wcj98.github.io/post/bitmaputils/</link>
       <pubDate>Sun, 30 Jun 2019 23:48:01 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/bitmaputils/</guid>
-      <description>Android Bitmap
-public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options.</description>
+      <description>Android图片工具类 public static Bitmap decodeBitmap(byte[] b, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeByteArray(b, 0, b.length, options); options.inJustDecodeBounds = false; options.inSampleSize = editBitmap(options, reqW, reqH); if (config) { options.inPreferredConfig = Bitmap.Config.RGB_565; } return BitmapFactory.decodeByteArray(b, 0, b.length, options); } public static Bitmap decodeBitmap(Resources resources, int resId, int reqW, int reqH, boolean config) { BitmapFactory.Options options = new BitmapFactory.Options(); options.inJustDecodeBounds = true; BitmapFactory.decodeResource(resources, resId, options); options.</description>
     </item>
     
     <item>
-      <title>Content</title>
+      <title>关于</title>
       <link>https://wcj98.github.io/post/about/</link>
       <pubDate>Sun, 02 Jun 2019 21:32:24 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/about/</guid>
-      <description>##博客说明
-这个博客主要来记录，学习Android和Java的笔记心得，和一些错误。
-努力进步！！！</description>
+      <description>##博客说明 这个博客主要来记录，学习Android和Java的笔记和一常犯的些错误。
+总结进步！！！</description>
     </item>
     
   </channel>
