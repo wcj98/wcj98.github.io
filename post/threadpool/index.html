@@ -12,7 +12,8 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Android的线程池"/>
-<meta name="twitter:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： (1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
+<meta name="twitter:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为：
+(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
 (2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
 (3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
 (4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
@@ -21,7 +22,8 @@ corePoolSize: 该线程池中核心线程的数量maximumPoolSize：该线程池
 for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool.execute(new Runnable() { @Override public void run() { System."/>
 
     <meta property="og:title" content="Android的线程池" />
-<meta property="og:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： (1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
+<meta property="og:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为：
+(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
 (2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
 (3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
 (4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
@@ -67,8 +69,9 @@ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.slee
     </header>
     <div class="post-content">
       <p>1.Java 线程池
-    Java通过Executors提供四种线程池，分别为：
-(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程</p>
+    Java通过Executors提供四种线程池，分别为：</p>
+
+<p>(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程</p>
 
 <p>(2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待</p>
 

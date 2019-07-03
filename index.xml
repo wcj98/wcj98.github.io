@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2019</copyright>
-    <lastBuildDate>Tue, 02 Jul 2019 22:44:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2019 20:05:52 +0800</lastBuildDate>
     
 	<atom:link href="https://wcj98.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>笔记--软引用和弱引用</title>
+      <link>https://wcj98.github.io/post/android_note_1/</link>
+      <pubDate>Wed, 03 Jul 2019 20:05:52 +0800</pubDate>
+      
+      <guid>https://wcj98.github.io/post/android_note_1/</guid>
+      <description>Android学习笔记&amp;ndash;软引用和弱引用 1.软引用
+软引用是用来描述一些有用但并不是必需的对象，在内存严重不足的情况下会被系统回收，如果该对象可能会经常使用的， 就尽量用软引用。因此，这一点可以很好地用来解决OOM的问题，并且这个特性很适合用来实现缓存：比如网页缓存、图片缓存等。 //创建一个对bitmap的弱引用 SoftReference&amp;lt;Bitmap&amp;gt; softReference = new SoftReference&amp;lt;Bitmap&amp;gt;(bitmap);//bitmap是一个Bitmap的实例。 //get方法用来获取与软引用关联的对象的引用，如果该对象被回收了，则返回null。 Bitmap bitmap = softReference.get();  2.弱引用
+弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象， WeakReference 的强度又明显低于 SoftReference，所以如果该对象不被使用的可能性更大些，就可以用弱引用。 WeakReference&amp;lt;Bitmap&amp;gt; weakReference = new WeakReference&amp;lt;Bitmap&amp;gt;(bitmap1); Bitmap bitmap1 = weakReference.get();  #例： private Map&amp;gt; imageCache = new HashMap&amp;gt;();
+public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap bitmap = BitmapFactory.decodeFile(path); // 软引用的Bitmap对象 SoftReference&amp;lt;Bitmap&amp;gt; softBitmap = new SoftReference&amp;lt;Bitmap&amp;gt;(bitmap); // 添加该对象到Map中使其缓存 imageCache.put(path, softBitmap); } public Bitmap getBitmapByPath(String path) { // 从缓存中取软引用的Bitmap对象 SoftReference&amp;lt;Bitmap&amp;gt; softBitmap = imageCache.</description>
+    </item>
     
     <item>
       <title>Android的线程池</title>
@@ -18,7 +30,8 @@
       <pubDate>Tue, 02 Jul 2019 22:44:07 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/threadpool/</guid>
-      <description>1.Java 线程池 Java通过Executors提供四种线程池，分别为： (1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
+      <description>1.Java 线程池 Java通过Executors提供四种线程池，分别为：
+(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
 (2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
 (3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
 (4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
