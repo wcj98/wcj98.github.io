@@ -28,13 +28,14 @@ for (int i = 0; i &amp;lt; 10; i++) { final int index = i; try { Thread.sleep(in
     </item>
     
     <item>
-      <title>Android CacheUtils</title>
+      <title>Android的缓存工具</title>
       <link>https://wcj98.github.io/post/cacheutils/</link>
       <pubDate>Mon, 01 Jul 2019 22:46:45 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/cacheutils/</guid>
       <description>#DiskLruCache
-private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
+注：需要将DiskLruCache的.jar包引入自己的工程。
+//创建缓存目录 private static File getCacheDir(Context context, String fileName) { String cachePath = context.getCacheDir().getPath(); return new File(cachePath + File.separator, fileName); } public static DiskLruCache createDiskLruCache(Context context, String name) { DiskLruCache diskLruCache = null; File cacheDir = getCacheDir(context, name); if (!cacheDir.exists()) { cacheDir.mkdirs(); } try { diskLruCache = DiskLruCache.open(cacheDir, 1, 1, 10 * 1024 * 1024); } catch (IOException e) { e.printStackTrace(); } return diskLruCache; } //Url转MD5 private static String toHexMd5(String path) { String cacheKey = null; try { final MessageDigest mDigest = MessageDigest.</description>
     </item>
     
     <item>
