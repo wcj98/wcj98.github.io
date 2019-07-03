@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>笔记--软引用和弱引用 // Chauncy&#39;s Blog</title>
+    <title>Android学习笔记--软引用和弱引用 // Chauncy&#39;s Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.55.6" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,17 +11,17 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="笔记--软引用和弱引用"/>
+<meta name="twitter:title" content="Android学习笔记--软引用和弱引用"/>
 <meta name="twitter:description" content="Android学习笔记&ndash;软引用和弱引用 1.软引用
 软引用是用来描述一些有用但并不是必需的对象，在内存严重不足的情况下会被系统回收，如果该对象可能会经常使用的， 就尽量用软引用。因此，这一点可以很好地用来解决OOM的问题，并且这个特性很适合用来实现缓存：比如网页缓存、图片缓存等。 //创建一个对bitmap的弱引用 SoftReference&lt;Bitmap&gt; softReference = new SoftReference&lt;Bitmap&gt;(bitmap);//bitmap是一个Bitmap的实例。 //get方法用来获取与软引用关联的对象的引用，如果该对象被回收了，则返回null。 Bitmap bitmap = softReference.get();  2.弱引用
-弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象， WeakReference 的强度又明显低于 SoftReference，所以如果该对象不被使用的可能性更大些，就可以用弱引用。 WeakReference&lt;Bitmap&gt; weakReference = new WeakReference&lt;Bitmap&gt;(bitmap1); Bitmap bitmap1 = weakReference.get();  #例： private Map&gt; imageCache = new HashMap&gt;();
-public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap bitmap = BitmapFactory.decodeFile(path); // 软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = new SoftReference&lt;Bitmap&gt;(bitmap); // 添加该对象到Map中使其缓存 imageCache.put(path, softBitmap); } public Bitmap getBitmapByPath(String path) { // 从缓存中取软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = imageCache."/>
+弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象， WeakReference 的强度又明显低于 SoftReference，所以如果该对象不被使用的可能性更大些，就可以用弱引用。 WeakReference&lt;Bitmap&gt; weakReference = new WeakReference&lt;Bitmap&gt;(bitmap1); Bitmap bitmap1 = weakReference.get();  #例：
+private Map&lt;String, SoftReference&lt;Bitmap&gt;&gt; imageCache = new HashMap&lt;String, SoftReference&lt;Bitmap&gt;&gt;(); public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap bitmap = BitmapFactory.decodeFile(path); // 软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = new SoftReference&lt;Bitmap&gt;(bitmap); // 添加该对象到Map中使其缓存 imageCache.put(path, softBitmap); } public Bitmap getBitmapByPath(String path) { // 从缓存中取软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = imageCache."/>
 
-    <meta property="og:title" content="笔记--软引用和弱引用" />
+    <meta property="og:title" content="Android学习笔记--软引用和弱引用" />
 <meta property="og:description" content="Android学习笔记&ndash;软引用和弱引用 1.软引用
 软引用是用来描述一些有用但并不是必需的对象，在内存严重不足的情况下会被系统回收，如果该对象可能会经常使用的， 就尽量用软引用。因此，这一点可以很好地用来解决OOM的问题，并且这个特性很适合用来实现缓存：比如网页缓存、图片缓存等。 //创建一个对bitmap的弱引用 SoftReference&lt;Bitmap&gt; softReference = new SoftReference&lt;Bitmap&gt;(bitmap);//bitmap是一个Bitmap的实例。 //get方法用来获取与软引用关联的对象的引用，如果该对象被回收了，则返回null。 Bitmap bitmap = softReference.get();  2.弱引用
-弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象， WeakReference 的强度又明显低于 SoftReference，所以如果该对象不被使用的可能性更大些，就可以用弱引用。 WeakReference&lt;Bitmap&gt; weakReference = new WeakReference&lt;Bitmap&gt;(bitmap1); Bitmap bitmap1 = weakReference.get();  #例： private Map&gt; imageCache = new HashMap&gt;();
-public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap bitmap = BitmapFactory.decodeFile(path); // 软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = new SoftReference&lt;Bitmap&gt;(bitmap); // 添加该对象到Map中使其缓存 imageCache.put(path, softBitmap); } public Bitmap getBitmapByPath(String path) { // 从缓存中取软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = imageCache." />
+弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象， WeakReference 的强度又明显低于 SoftReference，所以如果该对象不被使用的可能性更大些，就可以用弱引用。 WeakReference&lt;Bitmap&gt; weakReference = new WeakReference&lt;Bitmap&gt;(bitmap1); Bitmap bitmap1 = weakReference.get();  #例：
+private Map&lt;String, SoftReference&lt;Bitmap&gt;&gt; imageCache = new HashMap&lt;String, SoftReference&lt;Bitmap&gt;&gt;(); public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap bitmap = BitmapFactory.decodeFile(path); // 软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = new SoftReference&lt;Bitmap&gt;(bitmap); // 添加该对象到Map中使其缓存 imageCache.put(path, softBitmap); } public Bitmap getBitmapByPath(String path) { // 从缓存中取软引用的Bitmap对象 SoftReference&lt;Bitmap&gt; softBitmap = imageCache." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wcj98.github.io/post/android_note_1/" />
 <meta property="article:published_time" content="2019-07-03T20:05:52&#43;08:00"/>
@@ -36,13 +36,23 @@ public void addBitmapToCache(String path) { // 强引用的Bitmap对象 Bitmap b
       <p>My Android Development Notes.</p>
       <div class="app-header-social">
         
+          <a target="_blank" href="https://github.com/wcj98"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://weibo.com/u/5238331784/home?wvr=5&amp;uut=fin&amp;from=reg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg></a>
+        
       </div>
     </header>
     <main class="app-container">
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">笔记--软引用和弱引用</h1>
+      <h1 class ="post-title">Android学习笔记--软引用和弱引用</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -90,10 +100,11 @@ WeakReference 的强度又明显低于 SoftReference，所以如果该对象不�
     Bitmap bitmap1 = weakReference.get();
 </code></pre>
 
-<p>#例：
-    private Map<String, SoftReference<Bitmap>&gt; imageCache = new HashMap<String, SoftReference<Bitmap>&gt;();</p>
+<p>#例：</p>
 
-<pre><code>public void addBitmapToCache(String path) {
+<pre><code>private Map&lt;String, SoftReference&lt;Bitmap&gt;&gt; imageCache = new HashMap&lt;String, SoftReference&lt;Bitmap&gt;&gt;();
+
+public void addBitmapToCache(String path) {
 
     // 强引用的Bitmap对象
 

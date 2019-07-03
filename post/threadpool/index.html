@@ -13,23 +13,15 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Android的线程池"/>
 <meta name="twitter:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为：
-(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
-(2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
-(3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
-(4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
-2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
+(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程 (2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待 (3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行 (4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行  2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
 corePoolSize: 该线程池中核心线程的数量maximumPoolSize：该线程池中最大线程数量区别于corePoolSize) keepAliveTime:从字面上就可以理解，是非核心线程空闲时要等待下一个任务到来的时间，当任务很多，每个任务执行时间很短的情况下调大该值有助于提高线程利用率。注意：当allowCoreThreadTimeOut属性设为true时，该属性也可用于核心线程unit:上面时间属性的单位 workQueue:任务队列，threadFactory:线程工厂，可用于设置线程名字等等，一般无须设置该参数设置好几个参数就可以创建一个基本的线程池，而之后的各种线程池都是在这种基本线程池的基础上延伸的  3.newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。示例代码如下： ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool.execute(new Runnable() { @Override public void run() { System."/>
+ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool."/>
 
     <meta property="og:title" content="Android的线程池" />
 <meta property="og:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为：
-(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
-(2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
-(3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
-(4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
-2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
+(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程 (2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待 (3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行 (4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行  2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
 corePoolSize: 该线程池中核心线程的数量maximumPoolSize：该线程池中最大线程数量区别于corePoolSize) keepAliveTime:从字面上就可以理解，是非核心线程空闲时要等待下一个任务到来的时间，当任务很多，每个任务执行时间很短的情况下调大该值有助于提高线程利用率。注意：当allowCoreThreadTimeOut属性设为true时，该属性也可用于核心线程unit:上面时间属性的单位 workQueue:任务队列，threadFactory:线程工厂，可用于设置线程名字等等，一般无须设置该参数设置好几个参数就可以创建一个基本的线程池，而之后的各种线程池都是在这种基本线程池的基础上延伸的  3.newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。示例代码如下： ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool.execute(new Runnable() { @Override public void run() { System." />
+ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wcj98.github.io/post/threadpool/" />
 <meta property="article:published_time" content="2019-07-02T22:44:07&#43;08:00"/>
@@ -43,6 +35,16 @@ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.slee
       <h1>Chauncy&#39;s Blog</h1>
       <p>My Android Development Notes.</p>
       <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/wcj98"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://weibo.com/u/5238331784/home?wvr=5&amp;uut=fin&amp;from=reg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg></a>
         
       </div>
     </header>
@@ -71,17 +73,18 @@ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.slee
       <p>1.Java 线程池
     Java通过Executors提供四种线程池，分别为：</p>
 
-<p>(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程</p>
+<pre><code>(1).newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程
 
-<p>(2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待</p>
+(2).newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
 
-<p>(3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行</p>
+(3).newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行
 
-<p>(4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行</p>
+(4).newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺FIFO, LIFO, 优先执行
+</code></pre>
 
 <p>2.ThreadPoolExecutor 创建基本线程池
     创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下：
-  public ThreadPoolExecutor(int corePoolSize,
+    public ThreadPoolExecutor(int corePoolSize,
                               int maximumPoolSize,
                               long keepAliveTime,
                               TimeUnit unit,
@@ -97,35 +100,35 @@ workQueue:任务队列，threadFactory:线程工厂，可用于设置线程名�
 
 <p>3.newCachedThreadPool
     创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。示例代码如下：
-    ExecutorService cachedThreadPool = Executors.newCachedThreadPool();</p>
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();</p>
 
-<pre><code>for (int i = 0; i &lt; 10; i++) {
+<pre><code>    for (int i = 0; i &lt; 10; i++) {
 
-final int index = i;
+    final int index = i;
 
-try {
+    try {
 
-Thread.sleep(index * 1000);
+    Thread.sleep(index * 1000);
 
-} catch (InterruptedException e) {
+    } catch (InterruptedException e) {
 
-e.printStackTrace();
+    e.printStackTrace();
 
-}
+    }
 
-cachedThreadPool.execute(new Runnable() {
+    cachedThreadPool.execute(new Runnable() {
 
-@Override
+    @Override
 
-public void run() {
+    public void run() {
 
-System.out.println(index);
+    System.out.println(index);
 
-}
+    }
 
-});
+    });
 
-}
+    }
 
 线程池为无限大，当执行第二个任务时第一个任务已经完成，会复用执行第一个任务的线程，而不用每次新建线程
 </code></pre>
@@ -133,101 +136,102 @@ System.out.println(index);
 <p>4.newFixedThreadPool
     创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。示例代码如下：</p>
 
-<pre><code>ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+<pre><code>    ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 
-for (int i = 0; i &lt; 10; i++) {
+    for (int i = 0; i &lt; 10; i++) {
 
-final int index = i;
+    final int index = i;
 
-fixedThreadPool.execute(new Runnable() {
+    fixedThreadPool.execute(new Runnable() {
 
-@Override
+    @Override
 
-public void run() {
+    public void run() {
 
-try {
+    try {
 
-System.out.println(index);
+    System.out.println(index);
 
-Thread.sleep(2000);
+    Thread.sleep(2000);
 
-} catch (InterruptedException e) {
+    } catch (InterruptedException e) {
 
-// TODO Auto-generated catch block
+    // TODO Auto-generated catch block
 
-e.printStackTrace();
+    e.printStackTrace();
 
-}
+    }
 
-}
+    }
 
-});
+    });
 
-}
+    }
 
 定长线程池的大小最好根据系统资源进行设置大小
 </code></pre>
 
 <p>5.newScheduledThreadPool
     创建一个定长线程池，支持定时及周期性任务执行。延迟执行示例代码如下：
-ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);</p>
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(5);</p>
 
-<pre><code>scheduledThreadPool.schedule(new Runnable() {
+<pre><code>    scheduledThreadPool.schedule(new Runnable() {
 
-@Override
+    @Override
 
-public void run() {
+    public void run() {
 
-System.out.println(&quot;delay 3 seconds&quot;);
+    System.out.println(&quot;delay 3 seconds&quot;);
 
-}
+    }
 
-}, 3, TimeUnit.SECONDS);
+    }, 3, TimeUnit.SECONDS);
 </code></pre>
 
 <p>6.newSingleThreadExecutor
     创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺续FIFOFIFO, LIFO, 优先执行。示例代码如下：</p>
 
-<pre><code>ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+<pre><code>    ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
 
-for (int i = 0; i &lt; 10; i++) {
+    for (int i = 0; i &lt; 10; i++) {
 
-final int index = i;
+    final int index = i;
 
-singleThreadExecutor.execute(new Runnable() {
+    singleThreadExecutor.execute(new Runnable() {
 
-@Override
+    @Override
 
-public void run() {
+    public void run() {
 
-try {
+    try {
 
-System.out.println(index);
+    System.out.println(index);
 
-Thread.sleep(2000);
+    Thread.sleep(2000);
 
-} catch (InterruptedException e) {
+    } catch (InterruptedException e) {
 
-// TODO Auto-generated catch block
+    // TODO Auto-generated catch block
 
-e.printStackTrace();
+    e.printStackTrace();
 
-}
+    }
 
-}
+    }
 
-});
+    });
 
-}
+    }
 
 现行大多数GUI程序都是单线程的。Android中单线程可用于数据库操作，文件操作，应用批量安装，应用批量删除等不适合并发但可能IO阻塞性及影响UI线程响应的操作
 </code></pre>
 
-<p>/*为什么要用线程池:</p>
+<p><strong><em>为什么要用线程池</em></strong></p>
 
-<p>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务
+<pre><code>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务
 2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大内存，线程开的越多，消耗的内存也就越大
-Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService*/</p>
+Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService
+</code></pre>
 
 <ol>
 <li><p>newSingleThreadExecutor</p>
