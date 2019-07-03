@@ -12,13 +12,13 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Android的线程池"/>
-<meta name="twitter:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程��?newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待��?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行��?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺��?FIFO, LIFO, 优先��?执行��?
+<meta name="twitter:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待��?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行��?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺��?FIFO, LIFO, 优先��?执行��?
 2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
 corePoolSize: 该线程池中核心线程的数量maximumPoolSize：该线程池中最大线程数量区别于corePoolSize) keepAliveTime:从字面上就可以理解，是非核心线程空闲时要等待下一个任务到来的时间，当任务很多，每个任务执行时间很短的情况下调大该值有助于提高线程利用率。注意：当allowCoreThreadTimeOut属性设为true时，该属性也可用于核心线程unit:上面时间属性的单位 workQueue:任务队列，threadFactory:线程工厂，可用于设置线程名字等等，一般无须设置该参数设置好几个参数就可以创建一个基本的线程池，而之后的各种线程池都是在这种基本线程池的基础上延伸的  3.newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。示例代码如下： ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool.execute(new Runnable() { @Override public void run() { System."/>
 
     <meta property="og:title" content="Android的线程池" />
-<meta property="og:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程��?newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待��?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行��?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺��?FIFO, LIFO, 优先��?执行��?
+<meta property="og:description" content="1.Java 线程池 Java通过Executors提供四种线程池，分别为： newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待��?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行��?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺��?FIFO, LIFO, 优先��?执行��?
 2.ThreadPoolExecutor 创建基本线程池 创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下： public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue workQueue, ThreadFactory threadFactory) { &hellip; }
 corePoolSize: 该线程池中核心线程的数量maximumPoolSize：该线程池中最大线程数量区别于corePoolSize) keepAliveTime:从字面上就可以理解，是非核心线程空闲时要等待下一个任务到来的时间，当任务很多，每个任务执行时间很短的情况下调大该值有助于提高线程利用率。注意：当allowCoreThreadTimeOut属性设为true时，该属性也可用于核心线程unit:上面时间属性的单位 workQueue:任务队列，threadFactory:线程工厂，可用于设置线程名字等等，一般无须设置该参数设置好几个参数就可以创建一个基本的线程池，而之后的各种线程池都是在这种基本线程池的基础上延伸的  3.newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。示例代码如下： ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.sleep(index * 1000); } catch (InterruptedException e) { e.printStackTrace(); } cachedThreadPool.execute(new Runnable() { @Override public void run() { System." />
@@ -56,13 +56,13 @@ for (int i = 0; i &lt; 10; i&#43;&#43;) { final int index = i; try { Thread.slee
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          1 min read
         </div></div>
     </header>
     <div class="post-content">
       <p>1.Java 线程池
     Java通过Executors提供四种线程池，分别为：
-newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程�?newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待�?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行�?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺�?FIFO, LIFO, 优先�?执行�?</p>
+newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待�?newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行�?newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺�?FIFO, LIFO, 优先�?执行�?</p>
 
 <p>2.ThreadPoolExecutor 创建基本线程池
     创建线程池，主要是利用ThreadPoolExecutor这个类，而这个类有几种构造方法，其中参数最多的一种构造方法如下：
@@ -112,7 +112,7 @@ System.out.println(index);
 
 }
 
-线程池为无限大，当执行第二个任务时第一个任务已经完成，会复用执行第一个任务的线程，而不用每次新建线程�?
+线程池为无限大，当执行第二个任务时第一个任务已经完成，会复用执行第一个任务的线程，而不用每次新建线程
 </code></pre>
 
 <p>4.newFixedThreadPool
@@ -171,7 +171,7 @@ System.out.println(&quot;delay 3 seconds&quot;);
 </code></pre>
 
 <p>6.newSingleThreadExecutor
-    创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺续FIFOFIFO, LIFO, 优先�?执行。示例代码如下：</p>
+    创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺续FIFOFIFO, LIFO, 优先执行。示例代码如下：</p>
 
 <pre><code>ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
 
@@ -205,30 +205,33 @@ e.printStackTrace();
 
 }
 
-现行大多数GUI程序都是单线程的。Android中单线程可用于数据库操作，文件操作，应用批量安装，应用批量删除等不适合并发但可能IO阻塞性及影响UI线程响应的操作�?
+现行大多数GUI程序都是单线程的。Android中单线程可用于数据库操作，文件操作，应用批量安装，应用批量删除等不适合并发但可能IO阻塞性及影响UI线程响应的操作
 </code></pre>
 
 <p>/*为什么要用线程池:</p>
 
 <p>1.减少了创建和销毁线程的次数，每个工作线程都可以被重复利用，可执行多个任务
-2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大�?MB内存，线程开的越多，消耗的内存也就越大，最后死�?�?
-Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService�?*/</p>
+2.可以根据系统的承受能力，调整线程池中工作线线程的数目，防止因为消耗过多的内存，而把服务器累趴下(每个线程需要大内存，线程开的越多，消耗的内存也就越大
+Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService*/</p>
 
 <ol>
-<li>newSingleThreadExecutor</li>
-</ol>
+<li><p>newSingleThreadExecutor</p>
 
-<p>创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程来替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行�?
-2. newFixedThreadPool</p>
+<p>创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程来替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行</p></li>
 
-<p>创建固定大小的线程池。每次提交一个任务就创建一个线程，直到线程达到线程池的最大大小。线程池的大小一旦达到最大值就会保持不变，如果某个线程因为执行异常而结束，那么线程池会补充一个新线程�?
-3. newCachedThreadPool</p>
+<li><p>newFixedThreadPool</p>
+
+<p>创建固定大小的线程池。每次提交一个任务就创建一个线程，直到线程达到线程池的最大大小。线程池的大小一旦达到最大值就会保持不变，如果某个线程因为执行异常而结束，那么线程池会补充一个新线程</p></li>
+
+<li><p>newCachedThreadPool</p>
 
 <p>创建一个可缓存的线程池。如果线程池的大小超过了处理任务所需要的线程数量
-那么就会回收部分空闲不执行任务）的线程，当任务数增加时，此线程池又可以智能的添加新线程来处理任务。此线程池不会对线程池大小做限制，线程池大小完全依赖于操作系统（或者说JVM）能够创建的最大线程大小�?
-4. newScheduledThreadPool</p>
+那么就会回收部分空闲不执行任务）的线程，当任务数增加时，此线程池又可以智能的添加新线程来处理任务。此线程池不会对线程池大小做限制，线程池大小完全依赖于操作系统（或者说JVM）能够创建的最大线程大小</p></li>
 
-<p>创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。</p>
+<li><p>newScheduledThreadPool</p>
+
+<p>创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。</p></li>
+</ol>
 
     </div>
     <div class="post-footer">
