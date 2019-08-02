@@ -18,8 +18,8 @@
       <pubDate>Fri, 02 Aug 2019 09:34:01 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/%E8%87%AA%E5%AE%9A%E4%B9%89view/</guid>
-      <description>一个View的生成需要经过测量、布局和绘制三步，分别对应View中的 onMeasure()、onLayout()和onDraw()方法。  1、MeasureSpec的作用 ①UNSPECIFIED：未指定模式，父容器不限制View的大小，一般用于系统内部的测量 ②AT_MOST：最大模式，对应于在xml文件中指定控件大小为wrap_content属性，子View的最终大小是父View指定的大小值，并且子View的大小不能大于这个值 ③EXACTLY ：精确模式，对应于在xml文件中指定控件为match_parent属性或者是具体的数值，父容器测量出View所需的具体大小
-子View的onMeasure方法中会传来parentView的限制。  2.ViewGroup的自定义 (1)需要在其onMeasure方法中遍历所有的子View,来测量其子View的大小，从而来确定自己的大小。 (2)ViewGroup的onLayout方法，是对每个子View的位置进行放置。</description>
+      <description>自定义View和ViewGroup
+一个View的生成需要经过测量、布局和绘制三步，分别对应View中的 onMeasure()、onLayout()和onDraw()方法。 1、MeasureSpec的作用 子View的onMeasure方法中会传来parentView的限制。 可以通过： int modeW = MeasureSpec.getMode(widthMeasureSpec); int sizeW = MeasureSpec.getSize(widthMeasureSpec); int modeH = MeasureSpec.getMode(heightMeasureSpec); int sizeH = MeasureSpec.getSize(heightMeasureSpec); 来获取尺寸和模式。 ①UNSPECIFIED：未指定模式，父容器不限制View的大小，一般用于系统内部的测量 ②AT_MOST：最大模式，对应于在xml文件中指定控件大小为wrap_content属性，子View的最终大小是父View指定的大小值，并且子View的大小不能大于这个值 ③EXACTLY ：精确模式，对应于在xml文件中指定控件为match_parent属性或者是具体的数值，父容器测量出View所需的具体大小 2.ViewGroup的自定义 (1)需要在其onMeasure方法中遍历所有的子View,调用方法来测量其子View的大小， measureChild(childView, widthMeasureSpec, heightMeasureSpec); 从而来确定自己的大小，同时还需要确定每个子View的位置， ViewGroup的onLayout方法，是对每个子View的位置进行进行摆放。 @Override protected void onLayout(boolean changed, int l, int t, int r, int b) { for (int i = 0; i &amp;lt; getChildCount(); i++) { getChildAt(i).layout(childViewL.get(i), childViewT.get(i), childViewR.get(i), childViewB.get(i)); } } 3.自定义View的属性动画 例： ObjectAnimator animator = ObjectAnimator.ofInt(this, &amp;quot;degree&amp;quot;, 0, -90); 对一个自定义View的角度变化进行动画。 需要对该属性暴露出一个setter方法，并调用invalidate()，来实现重绘。 public void setDegree(int degree) { this.</description>
     </item>
     
     <item>
