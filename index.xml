@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2019</copyright>
-    <lastBuildDate>Sat, 03 Aug 2019 19:35:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 Aug 2019 22:58:49 +0800</lastBuildDate>
     
 	<atom:link href="https://wcj98.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>状态栏颜色和字体颜色</title>
+      <link>https://wcj98.github.io/post/%E7%8A%B6%E6%80%81%E6%A0%8F%E9%A2%9C%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Sat, 17 Aug 2019 22:58:49 +0800</pubDate>
+      
+      <guid>https://wcj98.github.io/post/%E7%8A%B6%E6%80%81%E6%A0%8F%E9%A2%9C%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2/</guid>
+      <description>关于透明状态栏和状态栏字体 1.设置透明状态栏 (1)getWindow().setStatusBarColor(Color.TRANSPARENT);//不会自动根据layout的颜色设置状态栏字体的颜色。 (2) getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+2.设置透明状态栏的字体颜色为深色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 3.设置透明状态栏的字体颜色为浅色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 4.隐藏状态栏 getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);  </description>
+    </item>
     
     <item>
       <title>ItemTouchHelper实现RecyclerView的拖拽和滑动删除</title>
@@ -19,7 +29,7 @@
       
       <guid>https://wcj98.github.io/post/itemtouchhelper%E5%AE%9E%E7%8E%B0recyclerview%E7%9A%84%E6%8B%96%E6%8B%BD%E5%92%8C%E6%BB%91%E5%8A%A8%E5%88%A0%E9%99%A4/</guid>
       <description>编写ItemTouchHelper实现RecyclerView的拖拽和滑动删除，遇到的问题。
- 1.给RecyclerView设置分割线： RecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() { @Override public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) { super.getItemOffsets(outRect, view, parent, state); outRect.set(5, 5, 5, 5); } }); 需要设置背景色，才能有效果。 2.拖拽ViewHolder想要实现阴影。 通过setElevation()方法，发现没有效果。 单单设置Z轴的偏移,itemView.setTranslationZ(20),也没有效果。 最后设置了 itemView.setBackgroundColor(Color.WHITE); itemView.setTranslationZ(0); 才有阴影效果。(不知道为什么) *****最后才发现在XML给itemView设置了Background会没有Z轴偏移的效果。  </description>
+ 1.给RecyclerView设置分割线： RecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() { @Override public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) { super.getItemOffsets(outRect, view, parent, state); outRect.set(5, 5, 5, 5); } }); 需要设置背景色，才能有效果。 2.拖拽ViewHolder想要实现阴影。 通过setElevation()方法，发现没有效果。 单单设置Z轴的偏移,itemView.setTranslationZ(20),也没有效果。 最后设置了 itemView.setBackgroundColor(Color.WHITE); itemView.setTranslationZ(0); 才有阴影效果。(不知道为什么)  </description>
     </item>
     
     <item>
