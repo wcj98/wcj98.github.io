@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Cmake编译opencv生成动态库 // Chauncy&#39;s Blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chauncy Wang" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://wcj98.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cmake编译opencv生成动态库"/>
+<meta name="twitter:description" content="使用AS编译三方开源库Opencv生成动态库
+在运行时遇到了一个问题，libc&#43;&#43;_shared.so not found 在这个问题上耗费了一两天，最后还是解决了。 在自己的项目中，运行不会报这个错误，把第三方库链接生成自己的动态库就出现了这个问题，网上说自己的项目gradle编译时会自动添加。 解决方法：手动添加，ndk-bundle\sources\cxx-stl\llvm-libc&#43;&#43;\libs中找到libc&#43;&#43;_shared.so，拷进自己的项目作为动态库进行编译。 1. CMakeLists.txt内容： cmake_minimum_required(VERSION 3.4.1 include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include) # 设置opencv的动态库 add_library(libopencv_java4 SHARED IMPORTED) set_target_properties(libopencv_java4 PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so) add_library(libc&#43;&#43;_shared SHARED IMPORTED) set_target_properties(libc&#43;&#43;_shared PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libc&#43;&#43;_shared.so) # Creates and names a library, sets it as either STATIC # or SHARED, and provides the relative paths to its source code. # You can define multiple libraries, and CMake builds them for you. # Gradle automatically packages shared libraries with your APK. add_library( # Sets the name of the library."/>
+
+    <meta property="og:title" content="Cmake编译opencv生成动态库" />
+<meta property="og:description" content="使用AS编译三方开源库Opencv生成动态库
+在运行时遇到了一个问题，libc&#43;&#43;_shared.so not found 在这个问题上耗费了一两天，最后还是解决了。 在自己的项目中，运行不会报这个错误，把第三方库链接生成自己的动态库就出现了这个问题，网上说自己的项目gradle编译时会自动添加。 解决方法：手动添加，ndk-bundle\sources\cxx-stl\llvm-libc&#43;&#43;\libs中找到libc&#43;&#43;_shared.so，拷进自己的项目作为动态库进行编译。 1. CMakeLists.txt内容： cmake_minimum_required(VERSION 3.4.1 include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include) # 设置opencv的动态库 add_library(libopencv_java4 SHARED IMPORTED) set_target_properties(libopencv_java4 PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so) add_library(libc&#43;&#43;_shared SHARED IMPORTED) set_target_properties(libc&#43;&#43;_shared PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libc&#43;&#43;_shared.so) # Creates and names a library, sets it as either STATIC # or SHARED, and provides the relative paths to its source code. # You can define multiple libraries, and CMake builds them for you. # Gradle automatically packages shared libraries with your APK. add_library( # Sets the name of the library." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wcj98.github.io/post/cmake%E7%BC%96%E8%AF%91opencv%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E5%BA%93/" />
+<meta property="article:published_time" content="2019-09-18T15:42:02&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-18T15:42:02&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://wcj98.github.io"><img class="app-header-avatar" src="https://wcj98.github.io/avatar.jpg" alt="Chauncy Wang" /></a>
+      <h1>Chauncy&#39;s Blog</h1>
+      <p>My Android Development Notes.</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/wcj98"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://weibo.com/u/5238331784/home?wvr=5&amp;uut=fin&amp;from=reg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Cmake编译opencv生成动态库</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 18, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <p>使用AS编译三方开源库Opencv生成动态库</p>
+
+<pre><code>在运行时遇到了一个问题，libc++_shared.so not found 在这个问题上耗费了一两天，最后还是解决了。
+
+在自己的项目中，运行不会报这个错误，把第三方库链接生成自己的动态库就出现了这个问题，网上说自己的项目gradle编译时会自动添加。
+
+解决方法：手动添加，ndk-bundle\sources\cxx-stl\llvm-libc++\libs中找到libc++_shared.so，拷进自己的项目作为动态库进行编译。
+
+
+1.
+
+CMakeLists.txt内容：
+
+
+cmake_minimum_required(VERSION 3.4.1
+include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include)
+
+# 设置opencv的动态库
+add_library(libopencv_java4 SHARED IMPORTED)
+set_target_properties(libopencv_java4 PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
+
+add_library(libc++_shared SHARED IMPORTED)
+set_target_properties(libc++_shared PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libc++_shared.so)
+
+
+# Creates and names a library, sets it as either STATIC
+# or SHARED, and provides the relative paths to its source code.
+# You can define multiple libraries, and CMake builds them for you.
+# Gradle automatically packages shared libraries with your APK.
+
+add_library( # Sets the name of the library.
+    native-lib
+
+    # Sets the library as a shared library.
+    SHARED
+
+    # Provides a relative path to your source file(s).
+    src/main/cpp/native-lib.cpp)
+
+
+
+find_library( # Sets the name of the path variable.
+    log-lib
+
+    log)
+
+
+
+target_link_libraries( # Specifies the target library.
+    native-lib
+
+    libopencv_java4
+
+    libc++_shared
+
+    ${log-lib})
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

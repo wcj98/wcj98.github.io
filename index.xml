@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2019</copyright>
-    <lastBuildDate>Sat, 17 Aug 2019 22:58:49 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 15:42:02 +0800</lastBuildDate>
     
 	<atom:link href="https://wcj98.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cmake编译opencv生成动态库</title>
+      <link>https://wcj98.github.io/post/cmake%E7%BC%96%E8%AF%91opencv%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E5%BA%93/</link>
+      <pubDate>Wed, 18 Sep 2019 15:42:02 +0800</pubDate>
+      
+      <guid>https://wcj98.github.io/post/cmake%E7%BC%96%E8%AF%91opencv%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E5%BA%93/</guid>
+      <description>使用AS编译三方开源库Opencv生成动态库
+在运行时遇到了一个问题，libc++_shared.so not found 在这个问题上耗费了一两天，最后还是解决了。 在自己的项目中，运行不会报这个错误，把第三方库链接生成自己的动态库就出现了这个问题，网上说自己的项目gradle编译时会自动添加。 解决方法：手动添加，ndk-bundle\sources\cxx-stl\llvm-libc++\libs中找到libc++_shared.so，拷进自己的项目作为动态库进行编译。 1. CMakeLists.txt内容： cmake_minimum_required(VERSION 3.4.1 include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include) # 设置opencv的动态库 add_library(libopencv_java4 SHARED IMPORTED) set_target_properties(libopencv_java4 PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so) add_library(libc++_shared SHARED IMPORTED) set_target_properties(libc++_shared PROPERTIES IMPORTED_LOCATION${CMAKE_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libc++_shared.so) # Creates and names a library, sets it as either STATIC # or SHARED, and provides the relative paths to its source code. # You can define multiple libraries, and CMake builds them for you. # Gradle automatically packages shared libraries with your APK. add_library( # Sets the name of the library.</description>
+    </item>
     
     <item>
       <title>状态栏颜色和字体颜色</title>
@@ -18,8 +28,8 @@
       <pubDate>Sat, 17 Aug 2019 22:58:49 +0800</pubDate>
       
       <guid>https://wcj98.github.io/post/%E7%8A%B6%E6%80%81%E6%A0%8F%E9%A2%9C%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2/</guid>
-      <description>关于透明状态栏和状态栏字体 1.设置透明状态栏 (1)getWindow().setStatusBarColor(Color.TRANSPARENT);//不会自动根据layout的颜色设置状态栏字体的颜色。 (2) getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-2.设置透明状态栏的字体颜色为深色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 3.设置透明状态栏的字体颜色为浅色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 4.隐藏状态栏 getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);  </description>
+      <description>关于透明状态栏和状态栏字体
+ 1.设置透明状态栏 (1)getWindow().setStatusBarColor(Color.TRANSPARENT);//不会自动根据layout的颜色设置状态栏字体的颜色。 (2) getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS); 2.设置透明状态栏的字体颜色为深色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 3.设置透明状态栏的字体颜色为浅色 getWindow().setStatusBarColor(Color.TRANSPARENT); getWindow().getDecorView().setSystemUiVisibility(View.View.SYSTEM_UI_FLAG_LAYOUT_STABLE|View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); 4.隐藏状态栏 getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);  </description>
     </item>
     
     <item>
